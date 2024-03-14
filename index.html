@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>TECHTILE</title>
+    <link rel="stylesheet" href="./styles.css">
+
+
+
+<body>
+<div class="container">
+    <div class="bar">
+        <div class="our-product" style="display: none;">
+            <div class="card our-product" style="--clr: #599491;">
+                <div class="imgBox">
+                    <img src="123.jpg">
+                </div>
+                <div class="ct">
+                    <h3>techtile prosthetic limb</h3>
+                    <p>techtile prosthetic limb is engineered to not only mimic the shape of the human hand, but also enhance the natural function of limbs, offering tactile feedback that allows users to experience a full spectrum of sensations.Our prosthetics are embedded with smart sensors that detect environmental stimuli, which are then translated into sophisticated haptic feedback. This feedback is carefully designed to be interpreted by the brain as natural touch, bridging the gap between artificial and organic experiences.They are not just prosthetics; they are extensions of the human body, empowering users to navigate the world with newfound confidence and grace.</p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="box about-us" style="display: none;">
+            <div class="list about-us">
+                <div class="team-member">
+                    <div class="imgBx">
+                        <img src="./Lucy.jpg">
+                    </div>
+                    <a>+</a>
+                </div>
+                <div class="content">
+                    <h2 class="rank">0</h2>
+                    <h4>Lucy Lu</h4>
+                    <p>CEO</p>
+                </div>
+            </div>
+            <div class="list about-us">
+                <div class="team-member">
+                    <div class="imgBx">
+                        <img src="Kevin.jpg">
+                    </div>
+                    <a>+</a>
+                </div>
+                <div class="content">
+                    <h2 class="rank">0</h2>
+                    <h4>Kevin Zhu</h4>
+                    <p>CFO</p>
+                </div>
+            </div>
+            <div class="list about-us">
+                <div class="team-member">
+                    <div class="imgBx">
+                        <img src="./Darren.jpg">
+                    </div>
+                    <a>+</a>
+                </div>
+                <div class="content">
+                    <h2 class="rank">0</h2>
+                    <h4>Darren Zhang</h4>
+                    <p>CGAYO</p>
+                </div>
+            </div>
+            <div class="list about-us">
+                <div class="team-member">
+                    <div class="imgBx">
+                        <img src="Henry.jpg">
+                    </div>
+                    <a>+</a>
+                </div>
+                <div class="content">
+                    <h2 class="rank">0</h2>
+                    <h4>Henry Liu</h4>
+                    <p>COO</p>
+                </div>
+            </div>
+        </div>
+        <div class="comment-board" style="display: none;">
+            <textarea id="input"></textarea>
+            <button class="btn">✈ </button>
+            <ul id="board"></ul>
+        </div>
+    </div>
+    <div class="content">
+
+        <header class="header-title">
+            <h1 class="open-intro">TECHTILE</h1>
+        </header>
+        <div class="logo">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="600pt">
+                
+                <image x="0" y="0" width="100%" height="100%" xlink:href="./logo.jpg" />
+
+            </svg>
+
+
+
+            <!-- SVG Content Here -->
+        </div>
+
+        <nav class="glass-navbar" id="navbar">
+            <ul>
+
+                <li id="op"><a href="https://relishc15.github.io/#">Product</a></li>
+                <li id="au"><a href="https://relishc15.github.io/#">About Us</a></li>
+                <li id="cb"><a href="https://relishc15.github.io/#">Comment</a></li>
+                <div id="marker" style="left: 108px; width: 86px;"></div>
+            </ul>
+        </nav>
+        <div class="empty"></div>
+    </div>
+    <div class="info">
+
+        <div class="video-box">
+            <div class="nav">
+                <!--按钮-->
+
+                <!--头像-->
+                <div class="icon">
+                    <div class="header-title">TECHTILE</div>
+
+                </div>
+
+
+                <div class="menu">
+                    <div class="item">
+                        <div class="light"></div>
+
+                        <div class="con"><div class="header-title">?</div></div>
+
+                    </div>
+                    <div class="item">
+                        <div class="light"></div>
+
+                        <div class="con"><div class="header-title">?</div></div>
+
+                    </div>
+                    <div class="item">
+                        <div class="light"></div>
+
+                        <div class="con"><div class="header-title">?</div></div>
+
+                    </div>
+                    <div class="item">
+                        <div class="light"></div>
+
+                        <div class="con"><div class="header-title">?</div></div>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let marker = document.querySelector('#marker');
+        let list = document.querySelectorAll('ul li');
+        function moveIndicator(e) {
+
+            marker.style.left = e.offsetLeft + 'px';
+            marker.style.width = e.offsetWidth + 'px';
+        }
+        list.forEach(link => {
+            link.addEventListener('mousemove', (e) => {
+                moveIndicator(e.target);
+            })
+        })
+
+
+        window.onload = function() {
+            let firstLink = list[0];
+            showPart("h")
+            moveIndicator(firstLink);
+        }
+        function activeLink(){
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+            let activeOption = document.getElementsByClassName("active")[0];
+
+            if (activeOption.id==="op"){
+                showPart("our-product")
+            }else if (activeOption.id==="au"){
+                showPart("about-us")
+            }else if (activeOption.id==="cb"){
+                showPart("comment-board")
+            }
+
+        }
+        list.forEach((item)=>
+            item.addEventListener('mouseover',activeLink));
+        function showPart(_class) {
+            let parentElement = document.getElementsByClassName('bar')[0];
+            let childElements = parentElement.children;
+
+            Array.from(childElements).forEach((item) => {
+                if (item.classList.contains(_class)) {
+
+                    item.style.display = 'flex';
+                    item.classList.add('fadeIn');
+
+                    if(_class==="our-product")
+                        item.style.flexDirection='column'
+                    if(_class==="about-us")
+                        item.style.flexDirection='column'
+                } else {
+                    item.style.display = 'none'
+                    item.classList.remove('fadeIn');
+                }
+            })
+        }
+        document.querySelectorAll('.box .list a').forEach(item => {
+            item.addEventListener('click', increaseRank);
+        });
+        document.querySelectorAll('.logo').forEach(item => {
+            item.addEventListener('click', ()=>{
+                showPart("")
+
+
+            });
+        });
+        Array.from(document.getElementsByClassName('open-intro')).forEach(item => {
+            item.addEventListener('click', ()=>{
+
+                let intro = document.getElementsByClassName("info")[0]
+                if(intro.style.opacity == '0'){
+                    intro.style.opacity = '1';
+                } else {
+                    intro.style.opacity = '0';
+                }
+            });
+        });
+
+
+        function increaseRank(event) {
+            // Find the rank element in the clicked item
+            let rankElement = event.currentTarget;
+            let grandParent = rankElement.parentNode.parentNode;
+
+
+            let targetElement = grandParent.querySelector('.content .rank');
+
+            // Get the current rank value
+            let currentRank = parseInt(targetElement.textContent.replace('#',''), 10);
+
+            targetElement.textContent=(currentRank+1).toString()
+
+            // Update the rank element with the new value
+
+        }
+
+        var txt = document.getElementById("input");
+        var btn = document.getElementsByClassName("btn")[0];
+        var ul = document.getElementById("board");
+        //2、给button绑定点击事件
+        btn.onclick = function () {
+            if (txt.value == "") {
+                alert("您没有输入内容")
+            } else {
+
+                var li = document.createElement("li");
+
+                li.innerHTML = txt.value + "<a href='javascript:;'>❌</a>"
+                txt.value = "";
+
+                ul.insertBefore(li, ul.children[0]);
+
+                var as = document.querySelectorAll("a");
+
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+
+
+
+
+    </script>
+
+
+
+</div></body><div id="photoShowViewer" class="sb_BingCA photoShow">
+    <div class="photoshow-viewer-shadow"></div>
+    <div class="photoshow-img-wrapper">
+        <img>
+        <div class="photoshow-view-mode-switch-tip">a</div>
+    </div>
+    <i class="photoshow-img-size"></i>
+</div></html>
